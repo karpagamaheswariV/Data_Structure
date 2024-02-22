@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include<stdlib.h>
+int main(void) {
+  int *m,*k;
+  int *add=0,n;
+  printf("Enter the limits:");
+  scanf("%d",&n);
+  m=(int *)malloc(n*sizeof(int));
+  k=(int *)malloc(n*sizeof(int));
+  add=(int *)malloc(n*sizeof(int)); //to reduce memory leak
+  printf("Enter the elements 1:\n");
+  for(int i=0;i<n;i++){
+    scanf("%d",m+i); 
+  }
+  printf("Enter the elements 2:\n");
+  for(int i=0;i<n;i++){
+    scanf("%d",k+i);
+  }
+  for(int i=0;i<n;i++){
+    *add=(*(m+i)+ *(k+i));
+    printf("%d ",*add);
+  }
+  free(m);
+  free(k);
+  return 0;
+}
