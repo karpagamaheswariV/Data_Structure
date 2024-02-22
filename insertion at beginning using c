@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+#include<stdlib.h>
+int main(void) {
+  int *a;
+  int n,value;
+  printf("Enter the size of the array: "); 
+  scanf("%d",&n);
+  a=(int*)malloc(n*sizeof(int));
+  printf("Enter the elements:\n");
+  for(int i=n;i>0;i--){
+    a[i]=a[i-1];
+    scanf("%d",&a[i]);
+    
+  }
+  printf("Elements to be inserted in beginning:");
+  scanf("%d",&value);
+  a[0]=value;
+  n++;
+  for(int i=0;i<n;i++){
+    printf("%d ",a[i]);
+  }
+  free(a); 
+  return 0;
+}
