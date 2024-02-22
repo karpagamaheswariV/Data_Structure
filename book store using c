@@ -1,0 +1,39 @@
+#include <stdio.h>
+struct book{
+   char bookname[30];
+   char author[30];
+   int price;
+
+};
+int main(void) {
+  struct book b[3];
+  int min=0,max=0;
+  for(int i=0;i<=2;i++){
+    printf("\nEnter the book name %d:",i+1);
+    scanf("%s",b[i].bookname);
+    printf("Enter the author name %d:",i+1);
+    scanf("%s",b[i].author);
+    printf("Enter the price %d:",i+1);
+    scanf("%d",&b[i].price);  
+  }
+  for(int i=0;i<=2;i++){
+    printf("\nBook Name %d: %s",i,b[i].bookname);
+    printf("\nAuthor Name %d: %s",i,b[i].author);
+    printf("\nPrice %d: %d",i,b[i].price);
+  
+   
+     if(b[i].price>b[max].price){
+       max=i;
+     }
+     else if(b[i].price<b[min].price){
+        min=i;
+     }
+     else{
+       printf("No book is available");
+     }
+   }
+  printf("\nExpensive book : %s", b[max].bookname);
+  printf("\nCheapest book : %s", b[min].bookname);
+   
+  return 0;
+}
