@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    int *a;
+    int n, pos;
+
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+
+    // Allocate memory for the array
+    a = (int *)malloc(n * sizeof(int));
+
+    printf("Enter the elements of the array:\n ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    printf("Enter the position to delete : ");
+    scanf("%d", &pos);
+
+    // Shift elements to the left to overwrite the element at the specified position
+    for (int i = pos; i < n - 1; i++) {
+        a[i] = a[i + 1];
+    }
+
+    // Reduce the size of the array by 1
+    n--;
+
+    printf("Array after deletion at position %d:\n", pos);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+
+    // Free dynamically allocated memory
+    free(a);
+
+    return 0;
+}
