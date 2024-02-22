@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+struct employee {
+   char employeename[30];
+   char id[30];
+   int salary;
+};
+
+int main(void) {
+  struct employee e[3];
+  int min = 0, max = 0;
+
+  for(int i = 0; i < 3; i++) {
+    printf("\nEnter the employee name %d: ", i + 1);
+    scanf("%s", e[i].employeename);
+    printf("Enter the employee ID %d: ", i + 1);
+    scanf("%s", e[i].id);
+    printf("Enter the salary %d: ", i + 1);
+    scanf("%d", &e[i].salary);  
+
+    if(e[i].salary > e[max].salary) {
+      max = i;
+    }
+    if(e[i].salary < e[min].salary) {
+      min = i;
+    }
+  }
+
+  // Display information of each employee
+  for(int i = 0; i < 3; i++) {
+    printf("\nEmployee Name %d: %s", i + 1, e[i].employeename);
+    printf("\nID %d: %s", i + 1, e[i].id);
+    printf("\nSalary %d: %d", i + 1, e[i].salary);
+  }
+
+  if(min != max) {
+    printf("\nHighest Salary Employee: %s", e[max].employeename);
+    printf("\nLowest Salary Employee: %s", e[min].employeename);
+  } else {
+    printf("\nNo different employees available");
+  }
+
+  return 0;
+}
