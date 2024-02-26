@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+int data;
+struct node *next;
+
+};
+struct node *createNode(int data){
+  struct node *nn=(struct node*)malloc(sizeof(struct node));
+  nn->data=data;
+  nn->next=NULL;
+  return nn;
+}
+ void append (struct node** headAddress,int data){
+  struct node **nn=createNode(data);
+  if(*headAddress==NULL){
+    *headAddress = nn;
+  }
+  else{
+    struct node *temp= *headAddress;
+    while(temp->next!=NULL){
+      temp=temp->next;
+    }
+    temp->next = nn;
+  }
+}
+int main(void) {
+  struct node *head=NULL;
+  int n,data;
+  printf("Enter the number of node\n");
+  scanf("%d",&n);
+  for(int i=0;i<n;i++){
+    printf("Enter the data\n");
+    scanf("%d",&data);
+    append(&head,data);
+    printf("The data is %d\n",data);
+  }
+  return 0;
+}
